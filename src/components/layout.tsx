@@ -1,11 +1,13 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
+import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import {
   container,
   heading,
   navLinks,
   navLinkItem,
   navLinkText,
+  siteTitle,
 } from "./layout.module.css";
 
 const Layout = ({
@@ -15,8 +17,11 @@ const Layout = ({
   pageTitle: string;
   children: ReactNode;
 }) => {
+  const { title } = useSiteMetadata();
+
   return (
     <div className={container}>
+      <header className={siteTitle}>{title}</header>
       <nav>
         <ul className={navLinks}>
           {[
