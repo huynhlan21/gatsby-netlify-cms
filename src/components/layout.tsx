@@ -1,5 +1,12 @@
 import React, { ReactNode } from "react";
 import { Link } from "gatsby";
+import {
+  container,
+  heading,
+  navLinks,
+  navLinkItem,
+  navLinkText,
+} from "./layout.module.css";
 
 const Layout = ({
   pageTitle,
@@ -9,20 +16,24 @@ const Layout = ({
   children: ReactNode;
 }) => {
   return (
-    <div>
+    <div className={container}>
       <nav>
-        <ul className="underline font-semibold text-blue-500">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+        <ul className={navLinks}>
+          {[
+            { text: "Home", link: "/" },
+            { text: "About", link: "/about" },
+          ].map((navItem) => (
+            <li className={navLinkItem}>
+              <Link to={navItem.link} className={navLinkText}>
+                {navItem.text}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
       <main>
-        <h1>{pageTitle}</h1>
+        <h1 className={heading}>{pageTitle}</h1>
         {children}
       </main>
     </div>
