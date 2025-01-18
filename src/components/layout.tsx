@@ -10,6 +10,12 @@ import {
   siteTitle,
 } from "./layout.module.css";
 
+const navItems = [
+  { text: "Home", link: "/" },
+  { text: "About", link: "/about" },
+  { text: "Blog", link: "/blog" },
+];
+
 const Layout = ({
   pageTitle,
   children,
@@ -24,10 +30,7 @@ const Layout = ({
       <header className={siteTitle}>{title}</header>
       <nav>
         <ul className={navLinks}>
-          {[
-            { text: "Home", link: "/" },
-            { text: "About", link: "/about" },
-          ].map((navItem) => (
+          {navItems.map((navItem) => (
             <li className={navLinkItem}>
               <Link to={navItem.link} className={navLinkText}>
                 {navItem.text}
