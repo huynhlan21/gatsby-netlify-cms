@@ -1,17 +1,18 @@
 import * as React from "react";
 import { Link, type HeadFC, type PageProps } from "gatsby";
 import { SEO } from "../components/seo";
+import Layout from "../components/layout";
 
 const AboutPage: React.FC<PageProps> = () => {
   return (
-    <main>
-      <h1>About page</h1>
-      <Link to="/">Back to home</Link>
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-    </main>
+    <Layout pageTitle="About page">
+      <p>Hi there! I build this site with Gatsby follow its tutorial.</p>
+    </Layout>
   );
 };
 
-export const Head: HeadFC = () => <SEO title="About Page" />;
+export const Head: HeadFC = () => (
+  <SEO title="About Page" description="A short description about me" />
+);
 
 export default AboutPage;
