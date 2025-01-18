@@ -7,24 +7,44 @@ import Layout from "../components/layout";
 const BlogPage = ({
   data,
 }: {
-  data: { allFile: { nodes: { name: string }[] } };
+  data: {
+    allMdx: {
+      nodes: {
+        id: string;
+        frontmatter: { title: string; date: string };
+        excerpt: string;
+      }[];
+    };
+  };
 }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      <ul>
-        {data.allFile.nodes.map((node) => (
-          <li key={node.name}>{node.name}</li>
-        ))}
-      </ul>
+      {data.allMdx.nodes.map((node) => (
+        <article key={node.id} className="my-4">
+          <h2 className="text-xl text-blue-500 font-bold">
+            {node.frontmatter.title}
+          </h2>
+          <p className="text-sm text-gray-600">
+            Posted: {node.frontmatter.date}
+          </p>
+          <p>{node.excerpt}</p>
+        </article>
+      ))}
     </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    allFile(filter: { sourceInstanceName: { eq: "blog" } }) {
+    allMdx(sort: { frontmatter: { date: ASC } }) {
       nodes {
-        name
+        frontmatter {
+          date
+          slug
+          title
+        }
+        id
+        excerpt
       }
     }
   }

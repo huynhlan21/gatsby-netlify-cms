@@ -21,7 +21,8 @@
 }
 
 .nav-link-text {
-  color: black;
+  text-decoration: underline;
+  font: 700;
 }
 
 .site-title {
