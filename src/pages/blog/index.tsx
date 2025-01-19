@@ -1,8 +1,8 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import type { HeadFC, PageProps } from "gatsby";
-import { SEO } from "../components/seo";
-import Layout from "../components/layout";
+import { SEO } from "../../components/seo";
+import Layout from "../../components/layout";
 
 const BlogPage = ({
   data,
@@ -11,7 +11,7 @@ const BlogPage = ({
     allMdx: {
       nodes: {
         id: string;
-        frontmatter: { title: string; date: string };
+        frontmatter: { title: string; date: string; slug: string };
         excerpt: string;
       }[];
     };
@@ -28,6 +28,12 @@ const BlogPage = ({
             Posted: {node.frontmatter.date}
           </p>
           <p>{node.excerpt}</p>
+          <Link
+            to={`/blog/${node.frontmatter.slug}`}
+            className="text-sm text-blue-500 underline"
+          >
+            Read more
+          </Link>
         </article>
       ))}
     </Layout>
