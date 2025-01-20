@@ -8,7 +8,7 @@ const BlogPage = ({
   data,
 }: {
   data: {
-    allMdx: {
+    allMarkdownRemark: {
       nodes: {
         id: string;
         frontmatter: { title: string; date: string; slug: string };
@@ -19,7 +19,7 @@ const BlogPage = ({
 }) => {
   return (
     <Layout pageTitle="My Blog Posts">
-      {data.allMdx.nodes.map((node) => (
+      {data.allMarkdownRemark.nodes.map((node) => (
         <article key={node.id} className="my-4">
           <h2 className="text-xl text-blue-500 font-bold">
             {node.frontmatter.title}
@@ -42,12 +42,12 @@ const BlogPage = ({
 
 export const query = graphql`
   query {
-    allMdx(sort: { frontmatter: { date: ASC } }) {
+    allMarkdownRemark(sort: { frontmatter: { date: ASC } }) {
       nodes {
         frontmatter {
           date
-          slug
           title
+          slug
         }
         id
         excerpt

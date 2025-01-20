@@ -5,7 +5,7 @@ import Layout from "../../components/layout";
 import { SEO } from "../../components/seo";
 
 interface BlogPostData {
-  mdx: {
+  markdownRemark: {
     frontmatter: {
       title: string;
       date: string;
@@ -28,23 +28,28 @@ const BlogPost = ({
   data: BlogPostData;
   children: React.ReactNode;
 }) => {
-  const image = getImage(data.mdx.frontmatter.hero_image);
+  const image = getImage(data.markdownRemark.frontmatter.hero_image);
 
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p className="text-sm text-gray-600">{data.mdx.frontmatter.date}</p>
+    <Layout pageTitle={data.markdownRemark.frontmatter.title}>
+      <p className="text-sm text-gray-600">
+        {data.markdownRemark.frontmatter.date}
+      </p>
       {children}
       {image && (
-        <GatsbyImage image={image} alt={data.mdx.frontmatter.hero_image_alt} />
+        <GatsbyImage
+          image={image}
+          alt={data.markdownRemark.frontmatter.hero_image_alt}
+        />
       )}
       <p>
         Photo Credit:{" "}
         <a
-          href={data.mdx.frontmatter.hero_image_credit_link}
+          href={data.markdownRemark.frontmatter.hero_image_credit_link}
           target="_blank"
           className="text-blue-500 underline"
         >
-          {data.mdx.frontmatter.hero_image_credit_text}
+          {data.markdownRemark.frontmatter.hero_image_credit_text}
         </a>
       </p>
       <Link to="/blog" className="text-sm text-blue-500 underline">
@@ -56,13 +61,14 @@ const BlogPost = ({
 
 export const query = graphql`
   query ($id: String) {
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        date
+        slug
         hero_image_alt
         hero_image_credit_link
         hero_image_credit_text
+        date
         hero_image {
           childImageSharp {
             gatsbyImageData
@@ -74,7 +80,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ data }: { data: BlogPostData }) => (
-  <SEO title={data.mdx.frontmatter.title} />
+  <SEO title={data.markdownRemark.frontmatter.title} />
 );
 
 export default BlogPost;
