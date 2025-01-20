@@ -9,7 +9,7 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout pageTitle="Home page">
       <p>I'm making this by following the Gatsby Tutorial.</p>
       <StaticImage
-        src="https://pbs.twimg.com/media/E1oMV3QVgAIr1NT?format=jpg&name=large"
+        src="https://plus.unsplash.com/premium_photo-1670356694379-703d10403965?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         alt="Clifford, a reddish-brown pitbull"
       />
     </Layout>

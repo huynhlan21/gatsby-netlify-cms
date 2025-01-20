@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import Layout from "../../components/layout";
 import { SEO } from "../../components/seo";
 
@@ -23,6 +23,9 @@ const BlogPost = ({
     <Layout pageTitle={data.mdx.frontmatter.title}>
       <p className="text-sm text-gray-600">{data.mdx.frontmatter.date}</p>
       {children}
+      <Link to="/blog" className="text-sm text-blue-500 underline">
+        Back
+      </Link>
     </Layout>
   );
 };

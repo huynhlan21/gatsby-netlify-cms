@@ -31,7 +31,7 @@ const Layout = ({
       <nav>
         <ul className={navLinks}>
           {navItems.map((navItem) => (
-            <li className={navLinkItem}>
+            <li key={navItem.text} className={navLinkItem}>
               <Link to={navItem.link} className={navLinkText}>
                 {navItem.text}
               </Link>
