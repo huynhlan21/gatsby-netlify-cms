@@ -65,11 +65,6 @@ export const query = graphql`
         hero_image_credit_link
         hero_image_credit_text
         date
-        hero_image {
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
       }
     }
   }
