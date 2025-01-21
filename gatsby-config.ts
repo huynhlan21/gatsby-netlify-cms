@@ -40,9 +40,9 @@ const config: GatsbyConfig = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "images",
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets`,
       },
-      __key: "images",
+      __key: "assets",
     },
     {
       resolve: "gatsby-source-filesystem",
