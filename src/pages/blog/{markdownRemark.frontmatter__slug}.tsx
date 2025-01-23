@@ -9,7 +9,7 @@ interface BlogPostData {
     frontmatter: {
       title: string;
       date: string;
-      hero_image: IGatsbyImageData;
+      hero_image: IGatsbyImageData & { relativePath: string };
       hero_image_alt: string;
       hero_image_credit_text: string;
       hero_image_credit_link: string;
