@@ -63,7 +63,7 @@ export const query = graphql`
         date
         hero_image {
           childImageSharp {
-            gatsbyImageData
+            gatsbyImageData(width: 300)
           }
         }
         hero_image_alt
