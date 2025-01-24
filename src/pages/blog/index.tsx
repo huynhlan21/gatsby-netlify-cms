@@ -11,8 +11,12 @@ const BlogPage = ({
     allMarkdownRemark: {
       nodes: {
         id: string;
-        frontmatter: { title: string; date: string; slug: string };
-        excerpt: string;
+        frontmatter: {
+          title: string;
+          date: string;
+          slug: string;
+          description: string;
+        };
       }[];
     };
   };
@@ -27,7 +31,7 @@ const BlogPage = ({
           <p className="text-sm text-gray-600">
             Posted: {node.frontmatter.date}
           </p>
-          <p>{node.excerpt}</p>
+          <p>{node.frontmatter.description}</p>
           <Link
             to={`/blog/${node.frontmatter.slug}`}
             className="text-sm text-blue-500 underline"
@@ -48,9 +52,9 @@ export const query = graphql`
           date
           title
           slug
+          description
         }
         id
-        excerpt
       }
     }
   }
