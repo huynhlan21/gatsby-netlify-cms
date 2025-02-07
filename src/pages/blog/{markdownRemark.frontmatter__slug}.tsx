@@ -1,20 +1,20 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import Layout from "../../components/layout";
 import { SEO } from "../../components/seo";
+import Layout from "../../components/layout";
 
 interface BlogPostData {
   markdownRemark: {
     frontmatter: {
       title: string;
       date: string;
-      html: string;
       hero_image: IGatsbyImageData & { relativePath: string };
       hero_image_alt: string;
       hero_image_credit_text: string;
       hero_image_credit_link: string;
     };
+    html: string;
   };
 }
 
@@ -32,7 +32,6 @@ const BlogPost = ({
     hero_image_alt,
     hero_image_credit_link,
     hero_image_credit_text,
-    html,
   } = data.markdownRemark.frontmatter;
   const image = getImage(hero_image);
 
@@ -51,7 +50,7 @@ const BlogPost = ({
           {hero_image_credit_text}
         </a>
       </p>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
       <Link to="/blog" className="text-sm text-blue-500 underline">
         Back
       </Link>
@@ -60,11 +59,10 @@ const BlogPost = ({
 };
 
 export const query = graphql`
-  query ($id: String) {
+  query ($id: String = "") {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
-        html
         date
         hero_image {
           childImageSharp {
@@ -75,6 +73,7 @@ export const query = graphql`
         hero_image_credit_link
         hero_image_credit_text
       }
+      html
     }
   }
 `;
