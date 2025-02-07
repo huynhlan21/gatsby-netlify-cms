@@ -14,7 +14,6 @@ interface BlogPostData {
       hero_image_credit_text: string;
       hero_image_credit_link: string;
     };
-    html: string;
   };
 }
 
@@ -50,7 +49,7 @@ const BlogPost = ({
           {hero_image_credit_text}
         </a>
       </p>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      {/* <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} /> */}
       <Link to="/blog" className="text-sm text-blue-500 underline">
         Back
       </Link>
@@ -73,7 +72,6 @@ export const query = graphql`
         hero_image_credit_link
         hero_image_credit_text
       }
-      html
     }
   }
 `;
