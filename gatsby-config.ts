@@ -1,3 +1,4 @@
+const path = require(`path`);
 import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
@@ -17,6 +18,16 @@ const config: GatsbyConfig = {
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "~/static": path.resolve(__dirname, "static"),
+          "~": path.resolve(__dirname, "src"),
+        },
+        extensions: [],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
