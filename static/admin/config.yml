@@ -13,12 +13,12 @@ collections:
     folder: "blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    path: "{{year}}-{{month}}-{{day}}-{{slug}}/index"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Hero Image", name: "hero_image", widget: image }
+      - { label: "Hero Image", name: "hero_image", widget: "image" }
       - { label: "Hero Image Alt", name: "hero_image_alt", widget: "string" }
       - { label: "Hero Image Text", name: "hero_image_text", widget: "string" }
       - { label: "Hero Image Link", name: "hero_image_link", widget: "string" }
