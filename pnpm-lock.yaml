@@ -14,9 +14,6 @@ dependencies:
   gatsby:
     specifier: ^5.14.1
     version: 5.14.1(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.7.3)
-  gatsby-plugin-alias-imports:
-    specifier: ^1.0.5
-    version: 1.0.5(gatsby@5.14.1)
   gatsby-plugin-image:
     specifier: ^3.14.0
     version: 3.14.0(@babel/core@7.26.0)(gatsby-plugin-sharp@5.14.0)(gatsby-source-filesystem@5.14.0)(gatsby@5.14.1)(graphql@15.10.1)(react-dom@18.3.1)(react@18.3.1)
@@ -7044,15 +7041,6 @@ packages:
       '@parcel/runtime-js': 2.8.3(@parcel/core@2.8.3)
       '@parcel/transformer-js': 2.8.3(@parcel/core@2.8.3)
       '@parcel/transformer-json': 2.8.3(@parcel/core@2.8.3)
-    dev: false
-
-  /gatsby-plugin-alias-imports@1.0.5(gatsby@5.14.1):
-    resolution: {integrity: sha512-q58JrSjuVNh4NApamqElR0zqwm55FOb9vFAVb2i2ftPRu0uYzWJkbOz2IN3vSw7a+5PmGzX7VL8XDFXlNHrMNA==}
-    peerDependencies:
-      gatsby: '>2.0.0'
-    dependencies:
-      '@babel/runtime': 7.26.0
-      gatsby: 5.14.1(babel-eslint@10.1.0)(react-dom@18.3.1)(react@18.3.1)(typescript@5.7.3)
     dev: false
 
   /gatsby-plugin-image@3.14.0(@babel/core@7.26.0)(gatsby-plugin-sharp@5.14.0)(gatsby-source-filesystem@5.14.0)(gatsby@5.14.1)(graphql@15.10.1)(react-dom@18.3.1)(react@18.3.1):
